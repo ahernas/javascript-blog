@@ -118,7 +118,7 @@ function generateTags(){
 
       /* add generated code to html variable */
       html =  html + linkHTML + ' ';
-      console.log(html);
+     // console.log(html);
 
     /* END LOOP: for each tag */
      }
@@ -131,6 +131,53 @@ function generateTags(){
 
 generateTags();
 
+function tagClickHandler(event){
+  /* prevent default action for this event */
+  event.preventDefault();
 
+  /* make new constant named "clickedElement" and give it the value of "this" */
+  const clickedElement = this;
+
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
+  const href = clickedElement.getAttribute("href");
+
+  /* make a new constant "tag" and extract tag from the "href" constant */
+  const tag = href.split('-')[1];
+  //const tag = href.replace('#tag-', '');
+
+  /* find all tag links with class active */
+  const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+
+  /* START LOOP: for each active tag link */
+  for (let activeTagLink of activeTagLinks) {
+    /* remove class active */
+    activeTagLink.classList.remove('active');
+  /* END LOOP: for each active tag link */
+  }
+
+  /* find all tag links with "href" attribute equal to the "href" constant */
+  const allTagLinks = document.querySelectorAll('a[href="' + href + '"]');
+  /* START LOOP: for each found tag link */
+  for (let allTagLink of allTagLinks) {
+    /* add class active */
+    allTagLink.classList.add('active');
+  /* END LOOP: for each found tag link */
+  }
+  /* execute function "generateTitleLinks" with article selector as argument */
+  generateTitleLinks('[data-tags~="' + tag + '"]');
+  }
+
+function addClickListenersToTags(){
+  /* find all links to tags */
+  const allLinks = document.querySelectorAll('a[href^="#tag-"]')
+  /* START LOOP: for each link */
+  for (let allLink of allLinks) {
+    /* add tagClickHandler as event listener for that link */
+   allLink.addEventListener('click', tagClickHandler);
+   }
+  /* END LOOP: for each link */
+}
+addClickListenersToTags();
+console.log(addClickListenersToTags);
 
 }
