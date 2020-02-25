@@ -1,0 +1,28 @@
+* [33m92dcaed[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Generate numbers of tag
+* [33mf92cb0f[m Display tag list
+* [33mcf2a628[m Change function generateTitleLinks
+* [33m02aa908[m Add function tagClickHandler
+* [33m0d70c10[m Split tags into array and start loop for each tag
+* [33mf55a917[m Change const optArticleTagsSelector
+* [33me754413[m Find all artcles and tags wrapper
+* [33m1768a28[m Install EditorConfig
+* [33m37e216d[m Install StyleLint
+* [33m0c4db85[m Install ESlint
+* [33m9bae26e[m Correct the project code
+* [33mead8ce5[m Correct the bug
+* [33me7ced4f[m Create HTML of the link
+* [33mf067b80[m Find the title element and get the title from the title element
+* [33m144a1f9[m Get the article id
+* [33mb395d6f[m Remove contents of titleList
+* [33m623e4a3[m Add class 'active' to the correct article
+* [33m0d1fab3[m Find the correct article using the selector
+* [33ma156ac7[m Get 'href' attribute from the clicked link
+* [33m12924e2[m Add class 'active' to the clicked link
+* [33mcfcca9f[m Remove class 'active' from all article links and articles
+* [33m3f11882[m Add function titleClickHandler and loop for of.
+* [33m34e2a24[m Add files js to watch:browsersync
+* [33m927a2a9[m Add style for page
+* [33mad1af7f[m Add HTML code
+* [33me2cb215[m Add HTML basic structure
+* [33m8a81945[m Run init-project
+* [33m12127f2[m Initial commit
