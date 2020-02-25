@@ -94,6 +94,22 @@ function generateTitleLinks (customSelector = '') {
 
 generateTitleLinks();
 
+function calculateTagsParams(tags) {
+  const params = {'max' : 0, 'min' : 999999};
+
+  for (let tag in tags) {
+
+  if (tags[tag] > params.max) {
+    params.max = tags[tag];
+  }
+  if (tags[tag] < params.min) {
+    params.min = tags[tag];
+  }
+  console.log(tag + ' is used ' + tags[tag] + ' times');
+}
+  return params;
+ }
+
 function generateTags() {
 
   /* [NEW] create a new variable allTags with an empty array */
@@ -126,17 +142,17 @@ function generateTags() {
       /* add generated code to html variable */
       html =  html + linkHTML + ' ';
 
-     /* [NEW] check if this link is NOT already in allTags */
-    if(!allTags[tag]) {
+       /* [NEW] check if this link is NOT already in allTags */
+      if(!allTags[tag]) {
 
-    /* [NEW] add tag to allTags object */
-      allTags[tag] = 1;
+      /* [NEW] add tag to allTags object */
+        allTags[tag] = 1;
 
-    } else {
-  allTags[tag]++
-    }
+      } else {
+        allTags[tag]++;
+      }
     /* END LOOP: for each tag */
-     }
+    }
     /* insert HTML of all the links into the tags wrapper */
      titleList.innerHTML = html;
 
@@ -145,13 +161,16 @@ function generateTags() {
    /* [NEW] find list of tags in right column */
   const tagList = document.querySelector('.tags');
 
+  const tagsParams = calculateTagsParams(allTags);
+  console.log('tagsParams:', tagsParams)
+
   /* [NEW] create variable for all links HTML code */
   let allTagsHTML = '';
 
   /* [NEW] START LOOP: for each tag in allTags: */
   for(let tag in allTags){
     /* [NEW] generate code of a link and add it to allTagsHTML */
-    allTagsHTML += '<li><a href="' + tag + ' '+ (' + allTags[tag] + ') + '">' + tag + ' ' + allTags[tag]  + ' </a></li>';
+    allTagsHTML += tag + ' (' + allTags[tag] + ') ';
 
   /* [NEW] END LOOP: for each tag in allTags: */
   }
