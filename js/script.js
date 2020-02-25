@@ -96,6 +96,7 @@ generateTitleLinks();
 
 function generateTags() {
 
+  /* [NEW] create a new variable allTags with an empty array */
   let allTags = {};
 
   /* find all articles */
@@ -118,21 +119,22 @@ function generateTags() {
 
     /* START LOOP: for each tag */
     for (let tag of articleTagsArray) {
-      //console.log(tag);
+
       /* generate HTML of the link */
       const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
 
       /* add generated code to html variable */
       html =  html + linkHTML + ' ';
-     // console.log(html);
 
-      /* [NEW] check if this link is NOT already in allTags */
-      if(!allTags[tag]) {
-      /* [NEW] add tag to allTags object */
-         allTags[tag] = 1;
-       } else {
-        allTags[tag]++;
-      }
+     /* [NEW] check if this link is NOT already in allTags */
+    if(!allTags[tag]) {
+
+    /* [NEW] add tag to allTags object */
+      allTags[tag] = 1;
+
+    } else {
+  allTags[tag]++
+    }
     /* END LOOP: for each tag */
      }
     /* insert HTML of all the links into the tags wrapper */
@@ -140,7 +142,7 @@ function generateTags() {
 
   /* END LOOP: for every article: */
   }
-    /* [NEW] find list of tags in right column */
+   /* [NEW] find list of tags in right column */
   const tagList = document.querySelector('.tags');
 
   /* [NEW] create variable for all links HTML code */
@@ -149,10 +151,10 @@ function generateTags() {
   /* [NEW] START LOOP: for each tag in allTags: */
   for(let tag in allTags){
     /* [NEW] generate code of a link and add it to allTagsHTML */
-    allTagsHTML += tag + ' (' + allTags[tag] + ') ';
-  }
-  /* [NEW] END LOOP: for each tag in allTags: */
+    allTagsHTML += '<li><a href="' + tag + ' '+ (' + allTags[tag] + ') + '">' + tag + ' ' + allTags[tag]  + ' </a></li>';
 
+  /* [NEW] END LOOP: for each tag in allTags: */
+  }
   /*[NEW] add HTML from allTagsHTML to tagList */
   tagList.innerHTML = allTagsHTML;
 }
@@ -188,8 +190,10 @@ function tagClickHandler(event){
 
   /* START LOOP: for each found tag link */
   for (let allTagLink of allTagLinks) {
+
     /* add class active */
     allTagLink.classList.add('active');
+
   /* END LOOP: for each found tag link */
   }
   /* execute function "generateTitleLinks" with article selector as argument */
@@ -200,6 +204,7 @@ function tagClickHandler(event){
 function addClickListenersToTags(){
   /* find all links to tags */
   const allLinks = document.querySelectorAll('a[href^="#tag-"]')
+
   /* START LOOP: for each link */
   for (let allLink of allLinks) {
     /* add tagClickHandler as event listener for that link */
@@ -259,6 +264,7 @@ function authorClickHandler(event) {
   }
 
   generateTitleLinks('[data-author ="' + author + '"]');
+
 
 }
 
