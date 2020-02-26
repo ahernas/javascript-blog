@@ -5,6 +5,16 @@
   console.log('links:', links);
 });*/
 {
+  const optArticleSelector = '.post',
+    optTitleSelector = '.post-title',
+    optTitleListSelector = '.titles';
+  const optArticleTagsSelector = '.post-tags .list';
+  const optArticleAuthorSelector = '.post .post-author';
+  const optTagsListSelector = '.tags.list';
+  const optCloudClassCount = 5;
+  const optCloudClassPrefix = 'tag-size-';
+  const optAuthorsListSelector = '.authors .list';
+
   const titleClickHandler = function(event) {
     event.preventDefault();
     const clickedElement = this;
@@ -41,18 +51,7 @@
     /* add class 'active' to the correct article */
     targetArticle.classList.add('active');
   };
-
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
-  const optArticleTagsSelector = '.post-tags .list';
-  const optArticleAuthorSelector = '.post .post-author';
-  const optTagsListSelector = '.tags.list';
-  const optCloudClassCount = 5;
-  const optCloudClassPrefix = 'tag-size-';
-  const optAuthorsListSelector = '.authors .list';
-
-
+  
   function generateTitleLinks (customSelector = '') {
 
     /* remove contents of titleList */
