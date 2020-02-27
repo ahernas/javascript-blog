@@ -81,29 +81,6 @@ body {
   display: inline-block;
 }
 
-.tags li {
-  display: inline-block;
-  padding-right: 10px;
-}
-
-.tag-size-5 {
-  font-size: 25px;
-  color: #218c74;
-  font-weight: 600;
-}
-
-.tag-size-3 {
-  font-size: 22px;
-  color: #cd6133;
-  font-weight: 550;
-}
-
-.tag-size-1 {
-  font-size: 19px;
-  color: #cc8e35;
-  font-weight: 450;
-}
-
 /* Authors */
 .authors li {
   margin-bottom: 12px;
