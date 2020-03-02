@@ -91,7 +91,7 @@
 
 
       /* insert link into titleList */
-      html = html + linkHTML;
+      html += linkHTML;
     }
 
     titleList.innerHTML = html;
@@ -166,7 +166,7 @@
         console.log(linkHTML);
 
         /* add generated code to html variable */
-        html = html + linkHTML + ' ';
+        html += linkHTML + ' ';
 
         /* [NEW] check if this link is NOT already in allTags */
         if (!allTags[tag]) {
@@ -287,7 +287,7 @@
       const linkHTMLData = {id: articleAuthors, title: articleAuthors};
       const linkHTML = templates.authorLink(linkHTMLData);
 
-      html = html + linkHTML;
+      html += linkHTML;
 
       if (!allAuthors[articleAuthors]) {
         allAuthors[articleAuthors] = 1;
@@ -306,7 +306,7 @@
       //allAuthorsHTML += '<li><a href="#author-' + articleAuthors + '">' + articleAuthors + '</a>(' + allAuthors[articleAuthors] + ')</li>';
       allAuthorsData.authors.push({
         author: articleAuthors,
-        count: ' (' + allAuthors[articleAuthors] + ')'
+        count: allAuthors[articleAuthors]
       });
     }
 
