@@ -306,7 +306,7 @@
       //allAuthorsHTML += '<li><a href="#author-' + articleAuthors + '">' + articleAuthors + '</a>(' + allAuthors[articleAuthors] + ')</li>';
       allAuthorsData.authors.push({
         author: articleAuthors,
-        count: allAuthors[articleAuthors]
+        count: `(${allAuthors[articleAuthors]})`
       });
     }
 
